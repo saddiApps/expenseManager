@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <div class="text-right">
+      <button ion-button (click)="openToDoAlert()" color="primary">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </div>
+    <ion-title>
+      {{title||"TODO"}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let todo of todos">
+        <ion-item>{{todo}}</ion-item>
+        <ion-item-options side="right" (slide)="clickOnItem(todo)">
+          <button ion-button color="danger">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
